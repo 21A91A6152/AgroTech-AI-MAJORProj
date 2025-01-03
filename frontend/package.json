@@ -51,6 +51,8 @@
     "react-router-dom": "^6.24.1",
     "react-toastify": "^10.0.6",
     "react-tsparticles": "^2.12.2",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.15.9",
     "tailwind-merge": "^2.5.3",
     "tailwindcss-animate": "^1.0.7",
     "three": "^0.169.0",
