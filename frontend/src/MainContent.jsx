@@ -37,6 +37,7 @@ import Feedback from './components/Feedback';
 import SoilTestingCentres from './components/SoilTestingCenters';
 import WaterManagement from './components/models/WaterManagement';
 import BestPractices from './pages/BestPractices';
+import SignIn from './components/Signin';
 
 
 
@@ -82,6 +83,7 @@ const MainContent = () => {
                 <Route path="/soil" element={<SoilQuality />} />
                 <Route path="/disease" element={<Disease />} />
                 <Route path="/crop_recommendation" element={<CropRotationRecommendation />} />
+                <Route path="/login" element={<SignIn />} />
               
 
                 <Route path="/prices" element={<Prices />} />
