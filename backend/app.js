@@ -10,9 +10,6 @@ var app = express();
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors())
 app.use(express.json())
-
- 
- 
  
 mongoose.connect('mongodb+srv://myAtlasDBUser:bc5OqNZlgc0XluxY@myatlasclusteredu.mzzgltg.mongodb.net/Agro?retryWrites=true&w=majority&appName=myAtlasClusterEDU', {
     useNewUrlParser: true,
