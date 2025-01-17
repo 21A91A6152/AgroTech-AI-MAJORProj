@@ -265,7 +265,7 @@ const Contact = () => {
         </div>
         <div className="grid w-full max-w-4xl gap-8 mb-10 mx-auto">
 
-          <div>
+{/*           <div>
             <h3 className="text-2xl font-bold text-gray-800 mb-4">Our Location</h3>
             <p>1-14 AgroTech AI Lane, Farming City, Madhapur,Hyderabad 533417</p>
             <div className="h-64 w-full mt-4">
@@ -279,7 +279,7 @@ const Contact = () => {
                 title="AgroTech-AI Company Location"
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
