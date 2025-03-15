@@ -15,6 +15,7 @@ const AdvantagesDisadvantages = () => {
     "Automated detection of pests and weeds for targeted intervention",
     "Increased labor efficiency through AI-powered robotic systems",
     "Optimizing the agricultural supply chain from farm to market",
+    
   ];
 
   return (
