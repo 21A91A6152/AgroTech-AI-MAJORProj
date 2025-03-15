@@ -53,6 +53,29 @@ const MainContent = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const [user, setUser] = useState("");
+  useEffect(() => {
+    const userDataString = localStorage.getItem('userData');
+    if (userDataString) {
+      const userData = JSON.parse(userDataString);
+      setUser(userData);
+    }
+  }, []);
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    Boolean(localStorage.getItem("userData"))
+  );
+
+  // Function to handle logout
+  const handleLogout = () => {
+    localStorage.removeItem("userData");
+    setIsAuthenticated(false); // Update the state
+  };
+
+  // Function to handle login (optional for SignIn integration)
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
   // Check if the current path is the one you want to hide the Navbar for
   const normalizePath = (path) => path.toLowerCase().replace(/^\/+|\/+$/g, '');
   const hideNavbarRoutes = ['navigateproducts', '404'];
