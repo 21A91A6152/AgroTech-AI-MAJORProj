@@ -100,7 +100,7 @@ const handleLoginSubmit = async (e) => {
     try {
       // Make POST request to the login endpoint
       const response = await axios.post(
-        "https://lemonprocurement.onrender.com/login",
+        "http://localhost:5001/login",
         formDataL
       );
 
@@ -159,7 +159,7 @@ const handleLoginSubmit = async (e) => {
     
           // Make the POST request
           const response = await axios.post(
-            "https://lemonprocurement.onrender.com/signup",
+            "http://localhost:5001/signup",
             formData // Pass formData directly
           );
     
@@ -199,7 +199,7 @@ const handleLoginSubmit = async (e) => {
     const handleForgotSubmit = (e) => {
       e.preventDefault();
       if(validateForgotForm()){
-      axios.put('https://lemonprocurement.onrender.com/forgot', {formDataF})
+      axios.put('http://localhost:5001/forgot', {formDataF})
           .then((res) => {
               Swal.fire({
                   title: "Success",

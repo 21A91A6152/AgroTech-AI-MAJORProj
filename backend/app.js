@@ -11,18 +11,20 @@ var app = express();
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(cors())
 app.use(express.json())
+ //mongodb+srv://manikumarreddyu:bllG4qclCQMjh3it@cluster0.eyrrr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+//mongoose.connect('mongodb+srv://myAtlasDBUser:bc5OqNZlgc0XluxY@myatlasclusteredu.mzzgltg.mongodb.net/Agro?retryWrites=true&w=majority&appName=myAtlasClusterEDU', {
+  mongoose.connect('mongodb+srv://manikumarreddyu:bllG4qclCQMjh3it@cluster0.eyrrr.mongodb.net/majorproject?retryWrites=true&w=majority&appName=Cluster0', {
  
-mongoose.connect('mongodb+srv://myAtlasDBUser:bc5OqNZlgc0XluxY@myatlasclusteredu.mzzgltg.mongodb.net/Agro?retryWrites=true&w=majority&appName=myAtlasClusterEDU', {
-    useNewUrlParser: true,
+useNewUrlParser: true,
     useUnifiedTopology: true,
-    serverSelectionTimeoutMS: 5000, // Timeout after 5 seconds
+    serverSelectionTimeoutMS: 5001, // Timeout after 5 seconds
   })
   .then(() => console.log("Connected to Database & Listening on localhost:5000"))
   .catch(err => console.error("Database connection error:", err));
   
- 
- 
-var server = app.listen(5000) 
+
+
+var server = app.listen(5001) 
 
 app.get('/', (req, res) => {
     res.send('Hello World!')
