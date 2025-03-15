@@ -106,7 +106,7 @@ const MainContent = () => {
                 <Route path="/soil" element={<SoilQuality />} />
                 <Route path="/disease" element={<Disease />} />
                 <Route path="/crop_recommendation" element={<CropRotationRecommendation />} />
-                <Route path="/login" element={<SignIn />} />
+                <Route path="/login" element={<SignIn onLogin={handleLogin}/>} />
               
 
                 <Route path="/prices" element={<Prices />} />
