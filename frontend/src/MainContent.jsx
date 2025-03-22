@@ -1,5 +1,5 @@
 import './App.css';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Crop from './components/models/CropRecommendation';
 import Home from './pages/Home';
@@ -81,19 +81,21 @@ const MainContent = () => {
   const hideNavbarRoutes = ['navigateproducts', '404'];
   const agroShopRoute = 'agroshop';
   const normalizedPath = normalizePath(location.pathname);
-  const hideNavbar = hideNavbarRoutes.includes(normalizedPath) || normalizedPath.startsWith(agroShopRoute);
-  const checkShop = normalizedPath.startsWith(agroShopRoute);
+  
   return (
     <>
       {isPreloaderVisible ? (
         <Preloader />
       ) : (
         <div>
+            <Navbar  />
+             {isAuthenticated ? (
+              <> 
          
             <GoTop />
             <ProgressScrollDown />
             <div>
-              {!hideNavbar ? <Navbar /> : <ShopNavbar />} {/* Conditional rendering for Navbar */}
+               
               <Routes>
                 <Route path="/thank-you" element={<Feedback />} /> {/* Thank You Page Route */}
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -107,8 +109,7 @@ const MainContent = () => {
                 <Route path="/disease" element={<Disease />} />
                 <Route path="/crop_recommendation" element={<CropRotationRecommendation />} />
                 <Route path="/login" element={<SignIn onLogin={handleLogin}/>} />
-              
-
+ 
                 <Route path="/prices" element={<Prices />} />
                 <Route path="/reports" element={<Reports />} />
                 <Route path="/aboutus" element={<AboutUs />} />
@@ -128,32 +129,53 @@ const MainContent = () => {
 
                 <Route path="/MushroomEdibility" element={<MushroomEdibility />} />
                 <Route path="/products" element={<Products />} />
-                {/* <Route path="/Auth-page" element={<AuthPage />} /> */}
+                 
                 <Route path="/whyai" element={<WhyAI />} />
-                {/* <Route path="/login" element={<LoginPage />} /> */}
-                {/* <Route path="/profile" element={<Profile />} /> */}
-                {/* <Route path="/signup" element={<SignUpPage />} />
-                <Route path="/verify-email" element={<AccountVerificationPage />} />
-                <Route path="/verification" element={<ResendVerificationPage />} />
-                <Route path="/forgot-password" element={<ForgotPasswordPage />} /> */}
+                 
                 <Route path="/terms" element={<TermsAndConditions />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
-                {/* <Route path="/news" element={<NewsForum />} /> */}
-                {/* <Route path="/ee-shops" element={<ElectricalElectronicsShops />} />
-                <Route path="/BestPractices" element={<BestPractices />} />
-                <Route path="/DiscussionPage" element={<DiscussionPage />} /> */}
-               
+                 <Route path="*" element={<Navigate to="/" />} />
+                </Routes>
+                </div>
+                 
+               </>
+              ) : (
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<SignIn onLogin={handleLogin}/>} />
+                <Route path="/thank-you" element={<Feedback />} /> {/* Thank You Page Route */}
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/licensing" element={<Licensing />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/crop" element={<Crop />} />
+                <Route path="/crop_recommendation" element={<CropRotationRecommendation />} />
+                <Route path="/prices" element={<Prices />} />
 
-                <Route path="*" element={<NotFound />} />
+                <Route path="BestPractices" element={<BestPractices/>}/>
+                <Route path="/Climate" element={<Climate />} />
+                <Route path="/soiltestingcentres" element={<SoilTestingCentres />} />
+
+                <Route path="/TaskReminder" element={<TaskReminder />} />
+                <Route path="/PlantTaskReminder" element={<PlantTaskReminder />} />
+                <Route path="/water-management" element={<WaterManagement />} />
+                 
+                <Route path="/whyai" element={<WhyAI />} />
+                <Route path="/aboutus" element={<AboutUs />} />
+                <Route path="/terms" element={<TermsAndConditions />} />
+                <Route path="/cookie-policy" element={<CookiePolicy />} />
+              
+                <Route path="*" element={<NotFound />}/>
+              </Routes>
+            )}
+                 
               
                
                
 
-
-  
-              </Routes>
-              {checkShop ? <ShopFooter /> : <Footer />}
-            </div>
+ 
+               <Footer />
+             
         
         </div>
       )}
