@@ -220,10 +220,10 @@ const handleLoginSubmit = async (e) => {
   };
 
     return (
-        <div className="container mx-auto px-4 py-6">
+        <div className="container mx-auto px-4 py-6 mt-10">
             {currentView === 'login' && (
-                <div className="max-w-md mx-auto bg-gradient-to-br from-white to-gray-50 shadow-lg rounded-lg overflow-hidden p-8 md:p-12">
-                <h1 className="text-3xl font-extrabold text-center text-gray-800 mb-8">
+                <div className="max-w-md mx-auto bg-gradient-to-br from-white to-gray-100 shadow-lg rounded-lg overflow-hidden mt-5 p-8 md:p-12">
+                <h1 className="text-3xl font-extrabold text-center text-green-500 mb-8">
                   Login to Your Account
                 </h1>
                 <div className="space-y-5">
@@ -290,7 +290,7 @@ const handleLoginSubmit = async (e) => {
 
             {currentView === 'signup' && (
                <div className="max-w-md mx-auto bg-gradient-to-br from-white to-gray-50 shadow-lg rounded-lg overflow-hidden p-8 md:p-12">
-               <h1 className="text-3xl font-extrabold text-center text-gray-800 mb-8">
+               <h1 className="text-3xl font-extrabold text-center text-green-500 mb-8">
                  Create Your Account
                </h1>
                <div className="space-y-5">
@@ -382,7 +382,7 @@ const handleLoginSubmit = async (e) => {
 
             {currentView === 'forgot' && (
                 <div className="max-w-md mx-auto bg-gradient-to-br from-white to-gray-50 shadow-lg rounded-lg overflow-hidden p-8 md:p-12">
-                <h1 className="text-3xl font-extrabold text-center text-gray-800 mb-8">
+                <h1 className="text-3xl font-extrabold text-center text-green-500 mb-8">
                   Change your Password
                 </h1>
                 <div className="space-y-5">

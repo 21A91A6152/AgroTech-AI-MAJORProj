@@ -38,6 +38,7 @@ import SoilTestingCentres from './components/SoilTestingCenters';
 import WaterManagement from './components/models/WaterManagement';
 import BestPractices from './pages/BestPractices';
 import SignIn from './components/Signin';
+import LoginNotFound from './LoginNotFound';
 
 
 
@@ -108,8 +109,8 @@ const MainContent = () => {
                 <Route path="/soil" element={<SoilQuality />} />
                 <Route path="/disease" element={<Disease />} />
                 <Route path="/crop_recommendation" element={<CropRotationRecommendation />} />
-           
-
+                <Route path="/login" element={<SignIn onLogin={handleLogin}/>} />
+ 
                 <Route path="/prices" element={<Prices />} />
                 <Route path="/reports" element={<Reports />} />
                 <Route path="/aboutus" element={<AboutUs />} />
@@ -164,6 +165,13 @@ const MainContent = () => {
                 <Route path="/aboutus" element={<AboutUs />} />
                 <Route path="/terms" element={<TermsAndConditions />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
+
+
+
+                <Route path="/disease" element={<LoginNotFound />} />
+                <Route path="/soil" element={<LoginNotFound />} />
+                <Route path="/fertilizer" element={<LoginNotFound />} />
+                 
               
                 <Route path="*" element={<NotFound />}/>
               </Routes>
