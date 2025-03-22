@@ -2,13 +2,37 @@ import { useState, useEffect, useRef } from "react";
 import { NavLink, Link } from "react-router-dom";
 import icon from "../assets/favicon2.png";
 import GoogleTranslate from "./GoogleTranslate";
+import Swal from 'sweetalert2';
 
 
-const Navbar = () => {
+const Navbar = ({onLogout }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState("John Doe")
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const navbarRef = useRef(null);
+
+  const handleLogout = () => {
+    onLogout(); // Trigger the parent App's logout handler
+    setIsLoggedIn(false);
+    Swal.fire({
+      position: "middle",
+      icon: "success",
+      title: "Logout successful!",
+      showConfirmButton: false,
+      timer: 1500,
+    })
+    navigate("/login");
+  };
+  useEffect(() => {
+    const userDataString = localStorage.getItem("userData");
+    if (userDataString) {
+      const userData = JSON.parse(userDataString);
+      setIsLoggedIn(true);
+      setUser(userData);
+    }
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -141,8 +165,26 @@ const Navbar = () => {
 
             {/* Google Translate Component */}
             <GoogleTranslate />
-            <NavLink to="/login" className={({ isActive }) => `block py-2 px-2 text-white rounded-lg transition-all duration-300 ${isActive ? "bg-green-700" : "hover:bg-green-500"}`} onClick={closeMenu}>Login In</NavLink>
-
+            {isLoggedIn ? (
+            <>
+              <div>
+                <button
+                  onClick={handleLogout}
+                  className="px-4 py-2 bg-white text-red-500 rounded hover:bg-green-100 transition"
+                >
+                  Logout <i className="fa-solid fa-right-from-bracket"></i>
+                </button>
+              </div>
+            </>
+          ) : (
+            <div>
+              <Link to="/login">
+                <button className="px-4 py-2 bg-white text-green-500 rounded hover:bg-green-100 transition">
+                   Log In
+                </button>
+              </Link>
+            </div>
+          )}
          
           </div>
         </div>
