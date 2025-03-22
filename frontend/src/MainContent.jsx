@@ -89,7 +89,7 @@ const MainContent = () => {
         <Preloader />
       ) : (
         <div>
-            <Navbar  />
+            <Navbar onLogout={handleLogout} />
              {isAuthenticated ? (
               <> 
          

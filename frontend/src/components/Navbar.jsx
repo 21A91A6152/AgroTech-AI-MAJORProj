@@ -14,17 +14,20 @@ const Navbar = ({onLogout }) => {
   const navbarRef = useRef(null);
 
   const handleLogout = () => {
-    onLogout(); // Trigger the parent App's logout handler
-    setIsLoggedIn(false);
+    setIsLoggedIn(false); // Update state
+    onLogout(); // Trigger parent logout (clear session/localStorage etc.)
+  
     Swal.fire({
       position: "middle",
       icon: "success",
       title: "Logout successful!",
       showConfirmButton: false,
       timer: 1500,
-    })
-    navigate("/login");
+    }).then(() => {
+      navigate("/login"); // Navigate after the alert finishes
+    });
   };
+  
   useEffect(() => {
     const userDataString = localStorage.getItem("userData");
     if (userDataString) {

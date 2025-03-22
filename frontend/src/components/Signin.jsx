@@ -100,7 +100,7 @@ const handleLoginSubmit = async (e) => {
     try {
       // Make POST request to the login endpoint
       const response = await axios.post(
-        "http://localhost:5001/login",
+        "https://agrotech-ai-majorproj.onrender.com/login",
         formDataL
       );
 
@@ -159,7 +159,7 @@ const handleLoginSubmit = async (e) => {
     
           // Make the POST request
           const response = await axios.post(
-            "http://localhost:5001/signup",
+            "https://agrotech-ai-majorproj.onrender.com/signup",
             formData // Pass formData directly
           );
     
@@ -199,7 +199,7 @@ const handleLoginSubmit = async (e) => {
     const handleForgotSubmit = (e) => {
       e.preventDefault();
       if(validateForgotForm()){
-      axios.put('http://localhost:5001/forgot', {formDataF})
+      axios.put('https://agrotech-ai-majorproj.onrender.com/forgot', {formDataF})
           .then((res) => {
               Swal.fire({
                   title: "Success",
