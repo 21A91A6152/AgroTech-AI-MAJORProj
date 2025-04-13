@@ -23,7 +23,7 @@ const url = {
   currentWeather: (lat, lon) =>
     `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}`,
   airPollution: (lat, lon) =>
-    `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}`,
+    `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}`,
   forecast: (lat, lon) =>
     `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}`,
   geo: query => `https://api.openweathermap.org/data/2.5/weather?q=${query}`,
@@ -156,7 +156,7 @@ const Climate = () => {
             <div className='flex flex-col items-center'>
               {/* Current Weather Icon */}
               <img
-                src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+                src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
                 alt={weatherData.weather[0].description}
                 className='w-24 h-24 mb-2'
               />
@@ -177,7 +177,7 @@ const Climate = () => {
                   <div className='flex items-center'>
                     {/* Weather Icon for Each Day */}
                     <img
-                      src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`} // Use forecast-specific weather icon
+                      src={`https://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png`} // Use forecast-specific weather icon
                       alt={forecast.weather[0].description}
                       className='w-12 h-12 mr-2' // Adjust the size of the icon
                     />
@@ -269,7 +269,7 @@ const Climate = () => {
                   {getTime(entry.dt, weatherData.timezone)}
                 </p>
                 <img
-                  src={`http://openweathermap.org/img/wn/${entry.weather[0].icon}@2x.png`}
+                  src={`https://openweathermap.org/img/wn/${entry.weather[0].icon}@2x.png`}
                   alt={entry.weather[0].description}
                   className='w-16 h-16 my-2'
                 />
