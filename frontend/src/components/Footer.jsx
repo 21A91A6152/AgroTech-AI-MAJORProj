@@ -243,14 +243,14 @@ const Footer = () => {
                 </div>
 
                 {/* Rate Us Button */}
-                <div className="text-center mt-4">
+                {/* <div className="text-center mt-4">
                     <button
                         onClick={() => setIsModalOpen(true)}
                         className="bg-lime-200 text-gray-800 font-semibold py-2 px-4 rounded transition-all duration-300 transform hover:bg-lime-300"
                     >
                         Rate Us
                     </button>
-                </div>
+                </div> */}
             </div>
 
             {/* Rating Modal */}
